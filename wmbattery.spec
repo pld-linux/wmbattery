@@ -2,7 +2,7 @@ Summary:	Dockable APM/Battery Monitor for WindowMaker/AfterStep
 Summary(pl):	Dokowalny monitor APM dla WindowMakera/AfterStepa
 Name:		wmbattery
 Version:	1.6
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Window Managers/Tools
 Source0:	http://kitenet.net/programs/code/wmbattery/%{name}-%{version}.tar.gz
