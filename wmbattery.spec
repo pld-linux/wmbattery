@@ -10,7 +10,6 @@ Source0:	http://kitenet.net/programs/wmbattery/%{name}-%{version}.tar.gz
 Source1:	wmbattery.desktop
 Patch:		wmbattery-makefile.patch
 BuildRequires:	XFree86-devel
-BuildRequires:	xpm-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define 	_prefix		/usr/X11R6
