@@ -12,7 +12,7 @@ BuildPrereq:	XFree86-devel
 BuildPrereq:	xpm-devel
 BuildRoot:   	/tmp/%{name}-%{version}-root
 
-%define _prefix         /usr/X11R6
+%define _prefix	/usr/X11R6
 
 %description
 WMBattery displays the status of your laptop's battery in a small
@@ -36,7 +36,8 @@ make OPTS="$RPM_OPT_FLAGS" ICONDIR=%{_datadir}/wmbattery
 %install
 rm -rf $RPM_BUILD_ROOT
 
-make install PREFIX=$RPM_BUILD_ROOT \
+make install \
+	PREFIX=$RPM_BUILD_ROOT \
 	BINDIR=%{_bindir} \
 	MANDIR=%{_mandir}/man1 \
 	ICONDIR=%{_datadir}/wmbattery
