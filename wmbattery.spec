@@ -21,9 +21,8 @@ low - yellow, or critical - red).
 
 %description -l pl
 WMBattery wy¶wietla informacje dotycz±ce stanu baterii laptopa,
-m.in. rodzaj wykorzystywanego ¼ród³a energii, d³ugo¶æ ¿ycia baterii,
-czas pozosta³y do wyczerpania baterii, stan obci±¿enia baterii,
-stan baterii (wysoki - zielony, niski - ¿ó³ty, krytyczny- zielony.
+rodzaj wykorzystywanego ¼ród³a energii, d³ugo¶æ ¿ycia baterii,
+czas pozosta³y do wyczerpania baterii, stan obci±¿enia baterii, itp.
 
 %prep
 %setup -q
