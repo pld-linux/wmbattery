@@ -33,13 +33,13 @@ czas pozosta³y do wyczerpania baterii, stan obci±¿enia baterii, itp.
 %patch -p0
 
 %build
-make OPTS="$RPM_OPT_FLAGS" ICONDIR=%{_datadir}/wmbattery
+%{__make} OPTS="$RPM_OPT_FLAGS" ICONDIR=%{_datadir}/wmbattery
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_applnkdir}/DockApplets 
 
-make install \
+%{__make} install \
 	PREFIX=$RPM_BUILD_ROOT \
 	BINDIR=%{_bindir} \
 	MANDIR=%{_mandir}/man1 \
