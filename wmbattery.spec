@@ -9,8 +9,8 @@ Copyright:	GPL
 Source0:	http://kitenet.net/programs/wmbattery/%{name}-%{version}.tar.gz
 Source1:	wmbattery.desktop
 Patch:		wmbattery-makefile.patch
-BuildPrereq:	XFree86-devel
-BuildPrereq:	xpm-devel
+BuildRequires:	XFree86-devel
+BuildRequires:	xpm-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %define _prefix	/usr/X11R6
