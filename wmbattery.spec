@@ -38,7 +38,7 @@ make OPTS="$RPM_OPT_FLAGS" ICONDIR=%{_datadir}/wmbattery
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_sysconfdir}/applnk/DockApplets 
+install -d $RPM_BUILD_ROOT/usr/X11R6/share/applnk/DockApplets 
 
 make install \
 	PREFIX=$RPM_BUILD_ROOT \
@@ -46,7 +46,7 @@ make install \
 	MANDIR=%{_mandir}/man1 \
 	ICONDIR=%{_datadir}/wmbattery
 	
-install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/applnk/DockApplets
+install %{SOURCE1} $RPM_BUILD_ROOT/usr/X11R6/share/applnk/DockApplets
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
 	README TODO debian/changelog debian/copyright
