@@ -3,10 +3,10 @@ Summary(pl):	Dokowalny monitor APM dla WindowMakera/AfterStepa
 Name:		wmbattery
 Version:	1.6
 Release:	2
+License:	GPL
 Group:		X11/Window Managers/Tools
 Group(de):	X11/Fenstermanager/Werkzeuge
 Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
-License:	GPL
 Source0:	http://kitenet.net/programs/code/wmbattery/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Patch0:		%{name}-makefile.patch
@@ -46,7 +46,7 @@ install -d $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 	MANDIR=%{_mandir}/man1 \
 	ICONDIR=%{_datadir}/wmbattery
 	
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
+#install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
 gzip -9nf README TODO debian/changelog debian/copyright
 
@@ -57,8 +57,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc *.gz debian/*.gz
 %attr(755,root,root) %{_bindir}/wmbattery
-
 %{_mandir}/man1/*
 %{_datadir}/wmbattery
-
-%{_applnkdir}/DockApplets/wmbattery.desktop
+#%{_applnkdir}/DockApplets/wmbattery.desktop
