@@ -62,12 +62,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/wmbattery
 
 /etc/X11/applnk/DockApplets/wmbattery.desktop
-
-%changelog
-* Mon May 17 1999 Piotr Czerwiñski <pius@pld.org.pl>
-  [1.1-1]
-- added more rpm macros,
-- package is FHS 2.0 compliant.
-
-* Sat May  8 1999 Piotr Czerwiñski <pius@pld.org.pl>
-- initial rpm release for PLD.
