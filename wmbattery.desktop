@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=wmbattery
+Comment=APM/Battery Monitor
+Comment[pl]=Monitor stanu baterii
+Exec=wmbattery
+Terminal=0
+Type=Application
