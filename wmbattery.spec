@@ -2,7 +2,7 @@ Summary:	Dockable APM/Battery Monitor for WindowMaker/AfterStep
 Summary(pl):	Dokowalny monitor APM dla WindowMakera/AfterStepa
 Name:		wmbattery
 Version:	1.6
-Release:	3
+Release:	4
 License:	GPL
 Group:		X11/Window Managers/Tools
 Source0:	http://kitenet.net/programs/code/wmbattery/%{name}-%{version}.tar.gz
@@ -35,7 +35,7 @@ do wyczerpania baterii, stan obci±¿enia baterii, itp.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
+install -d $RPM_BUILD_ROOT%{_desktopdir}/docklets
 
 %{__make} install \
 	PREFIX=$RPM_BUILD_ROOT \
@@ -43,7 +43,7 @@ install -d $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 	MANDIR=%{_mandir}/man1 \
 	ICONDIR=%{_datadir}/wmbattery
 
-#install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}/docklets
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -54,4 +54,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/wmbattery
 %{_mandir}/man1/*
 %{_datadir}/wmbattery
-#%%{_applnkdir}/DockApplets/wmbattery.desktop
+%{_desktopdir}/docklets/wmbattery.desktop
