@@ -12,6 +12,8 @@ BuildPrereq:	XFree86-devel
 BuildPrereq:	xpm-devel
 BuildRoot:   	/tmp/%{name}-%{version}-root
 
+%define _prefix         /usr/X11R6
+
 %description
 WMBattery displays the status of your laptop's battery in a small
 icon. This includes if it is plugged in, if the battery is charging,
@@ -29,14 +31,18 @@ czas pozosta³y do wyczerpania baterii, stan obci±¿enia baterii, itp.
 %patch -p0
 
 %build
-make OPTS="$RPM_OPT_FLAGS"
+make OPTS="$RPM_OPT_FLAGS" ICONDIR=%{_datadir}/wmbattery
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-make install PREFIX=$RPM_BUILD_ROOT
+make install PREFIX=$RPM_BUILD_ROOT \
+	BINDIR=%{_bindir} \
+	MANDIR=%{_mandir}/man1 \
+	ICONDIR=%{_datadir}/wmbattery
+	
 
-gzip -9nf $RPM_BUILD_ROOT/usr/X11R6/share/man/man1/* \
+gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
 	README TODO debian/changelog debian/copyright
 
 %clean
@@ -45,12 +51,16 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc {README,TODO,debian/changelog,debian/copyright}.gz
-%attr(755,root,root) /usr/X11R6/bin/wmbattery
+%attr(755,root,root) %{_bindir}/wmbattery
 
-/usr/X11R6/share/man/man1/*
-/usr/X11R6/share/wmbattery
+%{_mandir}/man1/*
+%{_datadir}/wmbattery
 
 %changelog
-* Sat May  8 1999 Piotr Czerwiñski <pius@pld.org.pl>
+* Mon May 17 1999 Piotr Czerwiñski <pius@pld.org.pl>
   [1.1-1]
+- added more rpm macros,
+- package is FHS 2.0 compliant.
+
+* Sat May  8 1999 Piotr Czerwiñski <pius@pld.org.pl>
 - initial rpm release for PLD.
