@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=wmbattery
+Name=wmBattery
 Comment=APM/Battery Monitor
 Comment[pl]=Monitor stanu baterii
 Exec=wmbattery
