@@ -7,9 +7,10 @@ Group:		X11/Window Managers/Tools
 Group(de):	X11/Fenstermanager/Werkzeuge
 Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
 License:	GPL
-Source0:	http://kitenet.net/programs/wmbattery/%{name}-%{version}.tar.gz
+Source0:	http://kitenet.net/programs/code/wmbattery/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Patch0:		%{name}-makefile.patch
+URL:		http://kitenet.net/programs/wmbattery/
 BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -54,7 +55,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc {README,TODO,debian/changelog,debian/copyright}.gz
+%doc *.gz debian/*.gz
 %attr(755,root,root) %{_bindir}/wmbattery
 
 %{_mandir}/man1/*
