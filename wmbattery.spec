@@ -46,14 +46,12 @@ install -d $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
 #install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
-gzip -9nf README TODO debian/changelog debian/copyright
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz debian/*.gz
+%doc README TODO debian/changelog debian/copyright
 %attr(755,root,root) %{_bindir}/wmbattery
 %{_mandir}/man1/*
 %{_datadir}/wmbattery
