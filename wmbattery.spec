@@ -6,6 +6,7 @@ Release:	2
 License:	GPL
 Group:		X11/Window Managers/Tools
 Source0:	http://kitenet.net/programs/code/wmbattery/%{name}-%{version}.tar.gz
+# Source0-md5:	189f3b2de2474232b3827495b6f9e9be
 Source1:	%{name}.desktop
 Patch0:		%{name}-makefile.patch
 URL:		http://kitenet.net/programs/wmbattery/
