@@ -53,4 +53,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/wmbattery
 %{_mandir}/man1/*
 %{_datadir}/wmbattery
-#%{_applnkdir}/DockApplets/wmbattery.desktop
+#%%{_applnkdir}/DockApplets/wmbattery.desktop
