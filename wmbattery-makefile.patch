@@ -1,0 +1,16 @@
+--- Makefile	Thu Feb  4 23:34:21 1999
++++ Makefile.pld	Sun May  9 00:01:24 1999
+@@ -1,9 +1,10 @@
+-ICONDIR = /usr/share/icons/wmbattery
++ICONDIR = /usr/X11R6/share/wmbattery
+ BINDIR  = /usr/X11R6/bin
+-MANDIR  = /usr/X11R6/man/man1
++MANDIR  = /usr/X11R6/share/man/man1
+ LIBDIR  = -L/usr/X11R6/lib
+ LIBS    = -lXpm -lXext
+-CFLAGS  = -g -DICONDIR=\"$(ICONDIR)\" -O2 -Wall
++OPTS	= -g -O2
++CFLAGS  = -DICONDIR=\"$(ICONDIR)\" -Wall $(OPTS)
+ 
+ wmbattery: wmbattery.c wmbattery.h
+ 	$(CC) $(CFLAGS) $(LIBDIR) $(LIBS) wmbattery.c -o wmbattery
