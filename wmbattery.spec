@@ -1,16 +1,16 @@
 Summary:	Dockable APM/Battery Monitor for WindowMaker/AfterStep
 Summary(pl):	Dokowalny monitor APM dla WindowMakera/AfterStepa
 Name:		wmbattery
-Version:	1.6
-Release:	4
-License:	GPL
+Version:	2.19
+Release:	1
+License:	GPL v2
 Group:		X11/Window Managers/Tools
-Source0:	http://kitenet.net/programs/code/wmbattery/%{name}-%{version}.tar.gz
-# Source0-md5:	189f3b2de2474232b3827495b6f9e9be
+Source0:	http://kitenet.net/programs/%{name}/%{name}_%{version}.tar.gz
+# Source0-md5:	13c84a71d47ab3f54a1c89d7ff3d9464
 Source1:	%{name}.desktop
-Patch0:		%{name}-makefile.patch
 URL:		http://kitenet.net/programs/wmbattery/
 BuildRequires:	XFree86-devel
+BuildRequires:	apmd-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 
@@ -27,22 +27,21 @@ wykorzystywanego ¼ród³a energii, d³ugo¶æ ¿ycia baterii, czas pozosta³y
 do wyczerpania baterii, stan obci±¿enia baterii, itp.
 
 %prep
-%setup -q
-%patch -p0
+%setup -q -n %{name}
 
 %build
-%{__make} OPTS="%{rpmcflags}" ICONDIR=%{_datadir}/wmbattery
+%configure 
+%{__make} \
+	icondir="%{_datadir}/%{name}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_desktopdir}/docklets
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name}}
+install -d $RPM_BUILD_ROOT{%{_desktopdir}/docklets,%{_mandir}/man1}
 
-%{__make} install \
-	PREFIX=$RPM_BUILD_ROOT \
-	BINDIR=%{_bindir} \
-	MANDIR=%{_mandir}/man1 \
-	ICONDIR=%{_datadir}/wmbattery
-
+install %{name} $RPM_BUILD_ROOT%{_bindir}
+install %{name}.1x $RPM_BUILD_ROOT%{_mandir}/man1
+install *.xpm $RPM_BUILD_ROOT%{_datadir}/%{name}
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}/docklets
 
 %clean
@@ -53,5 +52,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc README TODO debian/changelog debian/copyright
 %attr(755,root,root) %{_bindir}/wmbattery
 %{_mandir}/man1/*
-%{_datadir}/wmbattery
+%{_datadir}/%{name}
 %{_desktopdir}/docklets/wmbattery.desktop
