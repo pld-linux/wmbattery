@@ -3,12 +3,13 @@ Summary(pl):	Dokowalny monitor APM dla WindowMakera/AfterStepa
 Name:		wmbattery
 Version:	1.6
 Release:	1
-Group:          X11/Window Managers/Tools
-Group(pl):      X11/Zarz±dcy Okien/Narzêdzia
-Copyright:	GPL
+Group:		X11/Window Managers/Tools
+Group(de):	X11/Fenstermanager/Werkzeuge
+Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
+License:	GPL
 Source0:	http://kitenet.net/programs/wmbattery/%{name}-%{version}.tar.gz
-Source1:	wmbattery.desktop
-Patch:		wmbattery-makefile.patch
+Source1:	%{name}.desktop
+Patch0:		%{name}-makefile.patch
 BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -18,21 +19,21 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 WMBattery displays the status of your laptop's battery in a small
 icon. This includes if it is plugged in, if the battery is charging,
-how many minutes of battery life remain, battery life remaining (with 
-both a percentage and a graph), and battery status (high - green, 
-low - yellow, or critical - red).
+how many minutes of battery life remain, battery life remaining (with
+both a percentage and a graph), and battery status (high - green, low
+- yellow, or critical - red).
 
 %description -l pl
-WMBattery wy¶wietla informacje dotycz±ce stanu baterii laptopa,
-rodzaj wykorzystywanego ¼ród³a energii, d³ugo¶æ ¿ycia baterii,
-czas pozosta³y do wyczerpania baterii, stan obci±¿enia baterii, itp.
+WMBattery wy¶wietla informacje dotycz±ce stanu baterii laptopa, rodzaj
+wykorzystywanego ¼ród³a energii, d³ugo¶æ ¿ycia baterii, czas pozosta³y
+do wyczerpania baterii, stan obci±¿enia baterii, itp.
 
 %prep
 %setup -q
 %patch -p0
 
 %build
-%{__make} OPTS="$RPM_OPT_FLAGS" ICONDIR=%{_datadir}/wmbattery
+%{__make} OPTS="%{rpmcflags}" ICONDIR=%{_datadir}/wmbattery
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -46,8 +47,7 @@ install -d $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 	
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
-	README TODO debian/changelog debian/copyright
+gzip -9nf README TODO debian/changelog debian/copyright
 
 %clean
 rm -rf $RPM_BUILD_ROOT
