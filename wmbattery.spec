@@ -1,20 +1,21 @@
 Summary:	Dockable APM/Battery Monitor for WindowMaker/AfterStep
 Summary(pl):	Dokowalny monitor APM dla WindowMakera/AfterStepa
 Name:		wmbattery
-Version:	1.2
+Version:	1.6
 Release:	1
 Group:          X11/Window Managers/Tools
 Group(pl):      X11/Zarz±dcy Okien/Narzêdzia
 Copyright:	GPL
-Source0:	http://kitenet.net/programs/wmbattery/%{name}-%{version}.tar.gz
+Source0:	http://kitenet.net/programs/wmbattery/%{name}.tar.gz
 Source1:	wmbattery.desktop
 Patch:		wmbattery-makefile.patch
 BuildRequires:	XFree86-devel
 BuildRequires:	xpm-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 
-%define _prefix	/usr/X11R6
-%define _mandir %{_prefix}/man
+%define 	_prefix		/usr/X11R6
+%define 	_mandir 	%{_prefix}/man
+%define		_sysconfdir	/etc/X11
 
 %description
 WMBattery displays the status of your laptop's battery in a small
@@ -37,7 +38,7 @@ make OPTS="$RPM_OPT_FLAGS" ICONDIR=%{_datadir}/wmbattery
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/etc/X11/applnk/DockApplets 
+install -d $RPM_BUILD_ROOT%{_sysconfdir}/applnk/DockApplets 
 
 make install \
 	PREFIX=$RPM_BUILD_ROOT \
@@ -45,7 +46,7 @@ make install \
 	MANDIR=%{_mandir}/man1 \
 	ICONDIR=%{_datadir}/wmbattery
 	
-install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/applnk/DockApplets
+install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/applnk/DockApplets
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
 	README TODO debian/changelog debian/copyright
@@ -61,4 +62,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 %{_datadir}/wmbattery
 
-/etc/X11/applnk/DockApplets/wmbattery.desktop
+%{_sysconfdir}/applnk/DockApplets/wmbattery.desktop
