@@ -12,8 +12,6 @@ URL:		http://kitenet.net/programs/wmbattery/
 BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define 	_prefix		/usr/X11R6
-%define 	_mandir		%{_prefix}/man
 
 %description
 WMBattery displays the status of your laptop's battery in a small
