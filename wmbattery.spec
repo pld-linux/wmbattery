@@ -36,14 +36,14 @@ do wyczerpania baterii, stan obci±¿enia baterii, itp.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_applnkdir}/DockApplets 
+install -d $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
 %{__make} install \
 	PREFIX=$RPM_BUILD_ROOT \
 	BINDIR=%{_bindir} \
 	MANDIR=%{_mandir}/man1 \
 	ICONDIR=%{_datadir}/wmbattery
-	
+
 #install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
 gzip -9nf README TODO debian/changelog debian/copyright
