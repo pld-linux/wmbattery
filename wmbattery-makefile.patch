@@ -1,16 +1,12 @@
---- Makefile	Thu Feb  4 23:34:21 1999
-+++ Makefile.pld	Sun May  9 00:01:24 1999
-@@ -1,9 +1,11 @@
--ICONDIR = /usr/share/icons/wmbattery
-+ICONDIR = /usr/X11R6/share/wmbattery
- BINDIR  = /usr/X11R6/bin
- MANDIR  = /usr/X11R6/man/man1
+--- Makefile~	Mon Aug  9 05:04:14 1999
++++ Makefile	Fri Sep  3 22:16:34 1999
+@@ -4,7 +4,8 @@
+ INCDIR  = -I/usr/X11R6/include
  LIBDIR  = -L/usr/X11R6/lib
  LIBS    = -lXpm -lXext
-+INCDIR  = -I/usr/X11R6/include
--CFLAGS  = -g -DICONDIR=\"$(ICONDIR)\" -O2 -Wall
-+OPTS	 = -g -O2
-+CFLAGS  = -DICONDIR=\"$(ICONDIR)\" -Wall $(OPTS) $(INCDIR)
+-CFLAGS  = $(INCDIR) -g -DICONDIR=\"$(ICONDIR)\" -O2 -Wall
++OPTS	= -O2 -Wall
++CFLAGS  = $(INCDIR) -g -DICONDIR=\"$(ICONDIR)\" $(OPTS)
  
  wmbattery: wmbattery.c wmbattery.h
  	$(CC) $(CFLAGS) $(LIBDIR) $(LIBS) wmbattery.c -o wmbattery
