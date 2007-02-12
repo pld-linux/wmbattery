@@ -1,5 +1,5 @@
 Summary:	Dockable APM/Battery Monitor for WindowMaker/AfterStep
-Summary(pl.UTF-8):   Dokowalny monitor APM dla WindowMakera/AfterStepa
+Summary(pl.UTF-8):	Dokowalny monitor APM dla WindowMakera/AfterStepa
 Name:		wmbattery
 Version:	2.22
 Release:	1
