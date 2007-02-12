@@ -1,5 +1,5 @@
 Summary:	Dockable APM/Battery Monitor for WindowMaker/AfterStep
-Summary(pl):	Dokowalny monitor APM dla WindowMakera/AfterStepa
+Summary(pl.UTF-8):   Dokowalny monitor APM dla WindowMakera/AfterStepa
 Name:		wmbattery
 Version:	2.22
 Release:	1
@@ -21,10 +21,10 @@ how many minutes of battery life remain, battery life remaining (with
 both a percentage and a graph), and battery status (high - green, low
 - yellow, or critical - red).
 
-%description -l pl
-WMBattery wy∂wietla informacje dotycz±ce stanu baterii laptopa, rodzaj
-wykorzystywanego ºrÛd≥a energii, d≥ugo∂Ê øycia baterii, czas pozosta≥y
-do wyczerpania baterii, stan obci±øenia baterii, itp.
+%description -l pl.UTF-8
+WMBattery wy≈õwietla informacje dotyczƒÖce stanu baterii laptopa, rodzaj
+wykorzystywanego ≈∫r√≥d≈Ça energii, d≈Çugo≈õƒá ≈ºycia baterii, czas pozosta≈Çy
+do wyczerpania baterii, stan obciƒÖ≈ºenia baterii, itp.
 
 %prep
 %setup -q -n %{name}
